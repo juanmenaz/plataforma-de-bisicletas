@@ -1,41 +1,41 @@
-var bicicleta = function (id, color, modelo, ubicacion){
+var Bicicleta = function (id, color, modelo, ubicacion){
     this.id = id;
     this.color = color;
     this.modelo = modelo;
     this.ubicacion = ubicacion;
 }
 
-bicicleta.prototype.toString = function (){
+Bicicleta.prototype.toString = function (){
     return 'id: ' + this.id + " | color:" + this.color;
 }
 
-bicicleta.allbicis = [];
-bicicleta.add = function(abici){
-    bicicleta.allbicis.push(abici);
+Bicicleta.allBicis = [];
+Bicicleta.add = function(aBici){
+    Bicicleta.allBicis.push(aBici);
 }
 
-bicicleta.findById = function(abiciid){
-    var abici = bicicleta.allbicis.find(x => x.id == abiciid);
-    if (abici)
-        return abici;
+Bicicleta.findById = function(aBiciId){
+    var aBici = Bicicleta.allBicis.find(x => x.id == aBiciId);
+    if (aBici)
+        return aBici;
     else
-        throw new Error(`No existe una bicicleta con el id ${abiciid}`)
+        throw new Error(`No existe una bicicleta con el id ${aBiciId}`)
 }
 
-bicicleta.removeById = function(abiciid){
-    console.log(abiciid);
-    for(var i = 0; i < bicicleta.allbicis.length; i++){
-        if (bicicleta.allbicis[i].id == abiciid){
-            bicicleta.allbicis.splice(i, 1);
+Bicicleta.removeById = function(aBiciId){
+    console.log(aBiciId);
+    for(var i = 0; i < Bicicleta.allBicis.length; i++){
+        if (Bicicleta.allBicis[i].id == aBiciId){
+            Bicicleta.allBicis.splice(i, 1);
             break;
         }
     }
 }
  
-var a = new bicicleta(1, 'rojo', 'urbana', [-34.608114,-58.370298]);
-var b = new bicicleta(2, 'verde', 'urbana', [-34.604032,-58.369546]);
+var a = new Bicicleta(1, 'rojo', 'urbana', [-34.608114,-58.370298]);
+var b = new Bicicleta(2, 'verde', 'urbana', [-34.604032,-58.369546]);
 
-bicicleta.add(a);
-bicicleta.add(b);
+Bicicleta.add(a);
+Bicicleta.add(b);
 
-module.exports = bicicleta;
+module.exports = Bicicleta;
