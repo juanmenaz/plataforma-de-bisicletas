@@ -1,13 +1,9 @@
-  
-var express = require('express');
+var express = require('express')
 var router = express.Router();
-const usuariosController = require('../controllers/usuarios');
+var usuarioController = require('../../controllers/api/usuarioControllerApi')
 
-router.get('/', usuariosController.list);
-router.get('/create', usuariosController.create_get);
-router.post('/create', usuariosController.create);
-router.get('/:id/update', usuariosController.update_get);
-router.post('/:id/update', usuariosController.update);
-router.post('/:id/delete', usuariosController.delete);
+router.get('/', usuarioController.usuarios_list)
+router.post('/create', usuarioController.usuarios_create)
+router.post('/reservar', usuarioController.usuario_reservar)
 
 module.exports = router;
